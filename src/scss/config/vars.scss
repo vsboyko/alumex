@@ -1,0 +1,116 @@
+$siteResolution: .06289308176vw;
+$mainFont: 'Montserrat';
+$mainWeight: 500;
+$lineHeight1: 1.23;
+$lineHeight2: 1.4;
+$lineHeightDefault: $lineHeight1;
+
+$containerWidthMd: 1380rem;
+
+$gap: 20rem;
+$gapFluid: 40rem;
+
+$radiusMd: 20rem;
+
+$whiteColor: #ffffff;
+$blackColor: #000000;
+$lightGrayColor: #EFF0EB;
+$stoneGrayColor: #BEBFBA;
+$taupeColor: #6D6A60;
+$charcoalColor: #514E49;
+$oliveGreenColor: #A4A472;
+$accentColor: $oliveGreenColor;
+
+$bgSite: $whiteColor;
+
+$gradientBlack1: linear-gradient(270deg, rgba($taupeColor, .2) 28.68%, $charcoalColor 68.55%);
+$gradientGray1: linear-gradient(180deg, rgba($taupeColor, .4) 38.44%, $charcoalColor 92.04%), rgba(81,78,73, .4);
+$gradientTaupe1: linear-gradient(270deg, rgba($taupeColor, .2) 28.68%, rgba($taupeColor, .6) 68.55%);
+$gradientOlive1: linear-gradient(90deg, $oliveGreenColor 0%, rgba($oliveGreenColor, 0) 100%);
+$gradientOlive2: linear-gradient(90deg, $accentColor 0%, rgba($accentColor, .6) 100%);
+
+$fontFamily: $mainFont, Open Sans, sans-serif, Arial;
+$fontColor: $taupeColor;
+$fontWeight: $mainWeight;
+
+$transition: all .4s 0ms;
+
+$xl: 1340px;
+$xl-mf: $xl + 1;
+
+$lg: 1199px;
+$lg-mf: $lg + 1;
+
+$md: 991px;
+$md-mf: $md + 1;
+
+$sm: 767px;
+$sm-mf: $sm + 1;
+
+$xs: 576px;
+$xs-mf: $xs + 1;
+
+:root {
+  --fs-default: 15rem;
+  --fs-1: 116rem;
+  --fs-2: 36rem;
+  --fs-3: 26rem;
+  --fs-4: 21rem;
+  --fs-5: 17rem;
+  --fs-6: 15rem;
+  --fs-7: 13rem;
+  --fs-8: 240rem;
+  --fs-9: 175rem;
+
+  --gap: 20rem;
+  --gap-: -20rem;
+  --gap-fluid: 40rem;
+  --gap-fluid-: -40rem;
+  --gap-container: var(--gap-fluid);
+  --gap-container-: var(--gap-fluid-);
+
+  --section-y-1: 60rem;
+  --section-y-2: 40rem;
+
+  --title-gap: 56rem;
+  --title-gap-2: 40rem;
+  --suptitle-gap: 38rem;
+  --suptitle-border-gap: 20rem;
+
+  --slider-goods-gap: 54rem;
+  --slider-services-gap: 0;
+
+  --header-height: 48rem;
+
+  --btn-mw-md: 228rem;
+
+  --vh: 1vh;
+  @media (max-width: $md) {
+    --fs-default: 14rem;
+    --fs-1: 34rem;
+    --fs-2: 24rem;
+    --fs-3: 20rem;
+    --fs-4: 18rem;
+    --fs-5: 16rem;
+    --fs-6: 13rem;
+    --fs-7: 11rem;
+    --fs-8: 79rem;
+    --fs-9: 80rem;
+
+    --gap: 8rem;
+    --gap-: -8rem;
+    --gap-fluid: 16rem;
+    --gap-fluid-: -16rem;
+
+    --section-y-1: 50rem;
+    --section-y-2: 25rem;
+
+    --title-gap: 42rem;
+    --title-gap-2: 34rem;
+    --suptitle-gap: 28rem;
+    --suptitle-border-gap: 10rem;
+
+    --slider-goods-gap: var(--gap-fluid);
+    --slider-services-gap: var(--gap);
+  }
+}

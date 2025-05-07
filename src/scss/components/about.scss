@@ -1,0 +1,128 @@
+.about {
+  padding: var(--section-y-1) 0;
+  position: relative;
+  &__container {
+  }
+  &__inner {
+    margin: 0 0 140rem;
+  }
+  &__row {
+  }
+  &__col {
+    &--content {
+      @media (max-width: $md) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+    }
+    &--media {
+      margin: 0 auto;
+      @media (max-width: $md) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+    }
+  }
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  &__suptitle {
+  }
+  &__title {
+    margin: 0 0 86rem;
+    @media (max-width: $md) {
+      margin-bottom: 30rem;
+    }
+    span {
+      color: $accentColor;
+    }
+  }
+  &__text {
+  }
+  &__footer {
+    margin: auto 0 0;
+    padding-top: 26rem;
+    @media (max-width: $md) {
+      padding-top: var(--gap-fluid);
+      text-align: center;
+    }
+  }
+  &__btn {
+    min-width: var(--btn-mw-md);
+  }
+  &__media {
+    height: 100%;
+    position: relative;
+    @media (max-width: $md) {
+      margin-top: 60rem;
+    }
+    &:before {
+      background: $lightGrayColor;
+      width: 60vw;
+      content: '';
+      position: absolute;
+      top: calc(-1.4 * var(--section-y-1));
+      left: 134rem;
+      bottom: calc(-1 * var(--section-y-1));
+      pointer-events: none;
+      z-index: -1000;
+      @media (max-width: $md) {
+        top: var(--gap-fluid-);
+        bottom: var(--gap-fluid-);
+      }
+    }
+  }
+  &__hero {
+    @extend %img-cover;
+    height: 100%;
+    padding: 0 0 126.411290323%;
+  }
+  &__title-brand {
+    width: 132rem;
+    position: absolute;
+    top: 66rem;
+    right: 0;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    @media (max-width: $md) {
+      display: none;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+  &__benefits {
+    color: $charcoalColor;
+    &-row {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      @media (max-width: $md) {
+        flex-wrap: wrap;
+      }
+    }
+    &-col {
+      @media (max-width: $md) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+      &:not(:last-child) {
+        @media (max-width: $md) {
+          margin-bottom: 40rem;
+        }
+      }
+    }
+    &-card {
+      width: 100%;
+      max-width: 274rem;
+      @media (max-width: $md) {
+        max-width: 100%;
+      }
+    }
+  }
+}

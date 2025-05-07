@@ -1,0 +1,37 @@
+.appeal {
+  background: $lightGrayColor;
+  padding: var(--section-y-2) 0;
+  border-radius: $radiusMd;
+  overflow: hidden;
+  &__container {
+  }
+  &__inner {
+  }
+  &__row {
+  }
+  &__col {
+    &--content {
+      @media (max-width: $md) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+    }
+    &--quiz {
+      margin-left: auto;
+      @media (max-width: $md) {
+        max-width: 100%;
+        margin-left: 0;
+        flex-basis: 100%;
+      }
+    }
+  }
+  &__content {
+  }
+  &__quiz {
+    height: 100%;
+    padding: 54rem 0 30rem;
+    @media (max-width: $md) {
+      padding: 60rem 0 20rem;
+    }
+  }
+}
