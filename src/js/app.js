@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   SliderInit('.js-slider-services-init', {
-    slidesPerView: 3,
+    slidesPerView: 5,
     spaceBetween: 0,
     loop: true,
     autoplay: false,
@@ -58,8 +58,28 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       992: {
         centeredSlides: false,
-        slidesPerView: 3,
+        slidesPerView: 5,
       }
     }
+  });
+
+  // form send
+  document.querySelectorAll('.js-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const response = await fetch('send-form.php', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        form.classList.add('is-send');
+      }
+    });
   });
 });

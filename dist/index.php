@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-  <link rel="stylesheet" href="css/style.min.css??=v=20250507192944">
+  <link rel="stylesheet" href="css/style.min.css??=v=20250508172155">
   <link rel="icon" type="image/png" href="static/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="static/favicon/favicon.svg">
   <link rel="shortcut icon" href="static/favicon/favicon.ico">
@@ -661,13 +661,14 @@
                       </a>
                     </div>
                   </div>
-                  <div class="row__col--5 services__col services__col--form-appeal">
-                    <form action="#" class="form-appeal js-form-appeal services__form-appeal">
+                  <div id="form-appeal" class="row__col--5 services__col services__col--form-appeal">
+                    <form action="#" method="POST" class="form-appeal js-form services__form-appeal">
                       <div class="form-appeal__inner">
-                        <p class="u-title color-charcoal form-appeal__title fs-4">Заполните формы ниже</p>
+                        <p class="u-title form-appeal__title fs-4 color-charcoal">Заполните формы ниже</p>
+                        <input type="hidden" name="subject_form" value="Заявка форма">
                         <input type="text" name="name" class="form-appeal__input u-input u-input--size-md u-input--theme-white-outline" required placeholder="Ваше имя">
                         <input type="text" name="phone" class="form-appeal__input u-input u-input--size-md u-input--theme-white-outline js-mask-phone" required placeholder="Ваш телефон">
-                        <button type="submit" class="btn btn--size-md btn--theme-white-fill form-appeal__btn js-form-appeal-btn">
+                        <button type="submit" class="btn btn--size-md btn--theme-white-fill form-appeal__btn js-form-btn">
                           <span class="btn__inner">
                             <span class="btn__title">Заказать звонок</span>
                             <span class="btn__icon btn__icon--dir-rtl">
@@ -677,6 +678,12 @@
                             </span>
                           </span>
                         </button>
+                      </div>
+                      <div class="form-appeal__thanks">
+                        <p class="u-title form-appeal__title fs-4">Сообщение отправлено!</p>
+                        <div class="u-content form-appeal__thanks-text">
+                          <p>Скоро мы с Вами свяжемся!</p>
+                        </div>
                       </div>
                     </form>
                   </div>
@@ -853,7 +860,7 @@
               </a>
             </div>
             <div class="u-content footer__card-description">
-              <p><a href="#">Обратный звонок</a></p>
+              <p><a href="#form-appeal" class="js-anchor">Обратный звонок</a></p>
             </div>
           </div>
         </div>
@@ -877,6 +884,6 @@
 </div>
     </div>
 
-    <script src="js/app.min.js??=v=20250507192944"></script>
+    <script src="js/app.min.js??=v=20250508172155"></script>
   </body>
 </html>

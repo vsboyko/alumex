@@ -37,9 +37,7 @@
       color: $accentColor;
       border: 1px solid rgba($accentColor, .4);
       &:hover {
-        @media (min-width: $lg-mf) {
-          color: $lightGrayColor;
-        }
+        color: $lightGrayColor;
       }
       &:not(:hover) {
         &:before {
@@ -72,9 +70,7 @@
       color: $accentColor;
       border: 1px solid rgba($accentColor, .4);
       &:hover {
-        @media (min-width: $lg-mf) {
-          color: $lightGrayColor;
-        }
+        color: $lightGrayColor;
       }
       &:not(:hover) {
         &:before {
@@ -922,6 +918,7 @@
 }
 
 .form-appeal {
+  position: relative;
   &__inner {
   }
   &__title {
@@ -938,5 +935,34 @@
     width: fit-content;
     margin-left: auto;
     display: flex;
+  }
+  &__thanks {
+    background: $accentColor;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $whiteColor;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: $transition;
+    z-index: 1;
+    > :last-child {
+      margin-bottom: 0;
+    }
+    &-text {
+
+    }
+  }
+  &:not(.is-send) {
+    .form-appeal__thanks {
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }

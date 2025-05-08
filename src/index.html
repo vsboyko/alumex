@@ -697,13 +697,14 @@
                       </a>
                     </div>
                   </div>
-                  <div class="row__col--5 services__col services__col--form-appeal">
-                    <form action="#" class="js-form-appeal form-appeal services__form-appeal">
+                  <div id="form-appeal" class="row__col--5 services__col services__col--form-appeal">
+                    <form action="#" method="POST" class="js-form form-appeal services__form-appeal">
                       <div class="form-appeal__inner">
                         <p class="color-charcoal u-title fs-4 form-appeal__title">Заполните формы ниже</p>
+                        <input type="hidden" name="subject_form" value="Заявка форма">
                         <input type="text" name="name" class="u-input u-input--size-md u-input--theme-white-outline form-appeal__input" required placeholder="Ваше имя">
                         <input type="text" name="phone" class="js-mask-phone u-input u-input--size-md u-input--theme-white-outline form-appeal__input" required placeholder="Ваш телефон">
-                        <button type="submit" class="js-form-appeal-btn btn btn--theme-white-fill btn--size-md form-appeal__btn">
+                        <button type="submit" class="js-form-btn btn btn--theme-white-fill btn--size-md form-appeal__btn">
                           <span class="btn__inner">
                             <span class="btn__title">Заказать звонок</span>
                             <span class="btn__icon btn__icon--dir-rtl">
@@ -713,6 +714,12 @@
                             </span>
                           </span>
                         </button>
+                      </div>
+                      <div class="form-appeal__thanks">
+                        <p class="u-title fs-4 form-appeal__title">Сообщение отправлено!</p>
+                        <div class="u-content form-appeal__thanks-text">
+                          <p>Скоро мы с Вами свяжемся!</p>
+                        </div>
                       </div>
                     </form>
                   </div>

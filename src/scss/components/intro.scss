@@ -142,24 +142,44 @@
       justify-content: space-between;
       flex-wrap: nowrap;
       @media (max-width: $md) {
-        margin: 0 var(--gap-fluid-);
-        display: block;
-        white-space: nowrap;
-        overflow-x: auto;
+        flex-wrap: wrap;
       }
     }
     &-col {
       @media (max-width: $md) {
-        display: inline-block;
-        vertical-align: top;
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+      &:not(:last-child) {
+        @media (max-width: $md) {
+          margin-bottom: 40rem;
+        }
       }
     }
     &-card {
       width: 100%;
       max-width: 320rem;
       @media (max-width: $md) {
-        max-width: calc(100vw - 2 * var(--gap-fluid) - 50rem);
-        white-space: initial;
+        max-width: 100%;
+      }
+      .benefits-card__inner {
+        @media (max-width: $md) {
+          display: flex;
+          align-items: flex-start;
+        }
+      }
+      .benefits-card__picture {
+        @media (max-width: $md) {
+          max-width: 70rem;
+          height: 48rem;
+          margin-bottom: 0;
+          flex-basis: 70rem;
+        }
+      }
+      .benefits-card__text {
+        @media (max-width: $md) {
+          font-size: var(--fs-default);
+        }
       }
     }
   }
