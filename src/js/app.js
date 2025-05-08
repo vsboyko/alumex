@@ -11,6 +11,7 @@ import { SetVH } from './modules/SetVH.js';
 import BaseHelpers from './helpers/BaseHelpers.js';
 import { SmoothScroll } from './modules/SmoothScroll.js';
 import { InitCatalogDropdown } from './modules/InitCatalogDropdown.js';
+import PhoneMask from './modules/PhoneMask.js';
 import SliderInit from './modules/SliderInit.js';
 
 // set vh
@@ -27,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // header toggle catalog
   InitCatalogDropdown();
+
+  // mask phone
+  new PhoneMask('.js-phone-mask');
 
   // swiper slider init
   SliderInit('.js-slider-goods-init', {

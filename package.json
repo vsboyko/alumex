@@ -78,6 +78,7 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "imask": "^7.6.1",
     "swiper": "^11.2.6"
   }
 }
