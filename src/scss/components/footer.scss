@@ -4,6 +4,31 @@
   font-size: var(--fs-7);
   color: $lightGrayColor;
   border-radius: $radiusMd $radiusMd 0 0;
+  &__whatsapp-link {
+    @extend %area-click;
+    padding: 8rem;
+    display: block;
+    position: fixed;
+    right: 20rem;
+    bottom: 20rem;
+    animation: pulse-whatsapp 2s infinite ease-in-out;
+    transition: $transition;
+    @media (max-width: $md) {
+      right: 19rem;
+      bottom: 51rem;
+    }
+    &:hover {
+      text-decoration: none;
+      @media (min-width: $lg-mf) {
+        opacity: .6;
+      }
+    }
+    .u-icon {
+      width: 36rem;
+      height: 36rem;
+      display: block;
+    }
+  }
   &__container {
   }
   &__inner {
