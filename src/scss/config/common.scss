@@ -30,6 +30,14 @@
   &.disabled,
   &:disabled {
     pointer-events: none;
+    cursor: default;
+    opacity: .5;
+    &:hover {
+      &:before {
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+    }
   }
   &--theme {
     &-white-fill {
@@ -126,6 +134,9 @@
     &:first-child:last-child {
       margin-right: 11rem !important;
       margin-left: 11rem !important;
+    }
+    &.flip-x {
+      transform: scaleX(-1);
     }
     &--dir {
       &-ltr {
@@ -525,11 +536,117 @@
   }
 }
 
+.u-checkbox {
+  display: block;
+  position: relative;
+  transition: $transition;
+  cursor: pointer;
+  &--size {
+    &-md {
+      --checkbox-fs: var(--fs-7);
+      --checkbox-gap: 10rem;
+      --checkbox-icon-size: 24rem;
+      --checkbox-icon-radius: 4rem;
+      @media (max-width: $md) {
+      }
+    }
+  }
+  &--theme {
+    &-grey {
+      --checkbox-color: #{$fontColor};
+      --checkbox-icon-bg: #{$whiteColor};
+      --checkbox-icon-color: #{$accentColor};
+    }
+  }
+  &__control[type=radio] ~ &__inner {
+    .u-checkbox__icon {
+      border-radius: 50%;
+    }
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--checkbox-gap);
+    font-size: var(--checkbox-fs);
+    color: var(--checkbox-color);
+    transition: $transition;
+    transition-property: color;
+  }
+  &__control {
+    width: var(--checkbox-icon-size);
+    height: var(--checkbox-icon-size);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+  &__control:not(:checked) + &__inner &__icon {
+    &:before {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  &__control:not(:checked) + &__inner:hover {
+    @media (min-width: $lg-mf) {
+      color: $blackColor;
+      .u-checkbox__icon {
+        &:before {
+          opacity: .2;
+          visibility: visible;
+        }
+      }
+    }
+  }
+  &__control:checked + &__inner {
+    color: $blackColor;
+    .u-checkbox__icon {
+      border-color: rgba($accentColor, 1);
+    }
+  }
+  &__icon {
+    background: var(--checkbox-icon-bg);
+    width: var(--checkbox-icon-size);
+    height: var(--checkbox-icon-size);
+    flex: 0 0 var(--checkbox-icon-size);
+    color: var(--checkbox-icon-color);
+    border: 1px solid rgba($accentColor, .4);
+    border-radius: var(--checkbox-icon-radius);
+    transition: $transition;
+    transition-property: border-color;
+    position: relative;
+    @media (max-width: $md) {
+      margin-top: 3rem;
+    }
+    &:before {
+      background: url('data:image/svg+xml,%3Csvg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M42.6912 7.38846C43.5173 7.26578 44.3485 7.60984 44.8426 8.2869L44.9373 8.42654L45.0203 8.57205C45.3992 9.2976 45.3537 10.1771 44.8933 10.864L44.8943 10.865L23.8006 43.5525L23.7996 43.5515C23.491 44.0335 23.0165 44.3748 22.4724 44.5164L22.2342 44.5642C21.5838 44.6608 20.9222 44.4686 20.4265 44.0349L20.4187 44.0271L20.4109 44.0203L5.56717 30.576C4.87875 30.0864 4.52172 29.2525 4.64627 28.4138L4.67654 28.2508C4.8576 27.4444 5.47065 26.7848 6.29568 26.5681L6.45877 26.532C7.22996 26.3893 8.02462 26.6579 8.54959 27.2469L21.4646 38.8992L41.1062 8.44705L41.1072 8.44803C41.4042 7.96694 41.8673 7.62318 42.3982 7.46854C42.4415 7.45321 42.5038 7.42895 42.5721 7.4119L42.6306 7.39725L42.6912 7.38846Z" fill="%23303030"/%3E%3C/svg%3E%0A') 50% / contain no-repeat;
+      content: '';
+      position: absolute;
+      top: 4rem;
+      right: 4rem;
+      bottom: 4rem;
+      left: 4rem;
+      transition: $transition;
+    }
+  }
+  &__title {
+    flex: 1 1 auto;
+  }
+}
+
 .u-quiz {
+  min-height: 453rem;
   display: flex;
   flex-direction: column;
   position: relative;
+  @media (max-width: $md) {
+    min-height: 0;
+  }
   &__step {
+    &:not(.is-show) {
+      display: none;
+    }
     &-list {
     }
   }
@@ -544,6 +661,14 @@
       text-align: center;
     }
   }
+  &__question-description {
+    margin: -40rem 0 50rem;
+    font-size: var(--fs-7);
+    color: rgba($blackColor, .4);
+    @media (max-width: $md) {
+      margin: -20rem 0 30rem;
+    }
+  }
   &__control {
     max-width: 33.33%;
     &-list {
@@ -553,10 +678,9 @@
   }
   &__footer {
     margin-top: auto;
-    padding-top: 70rem;
-    display: flex;
+    padding-top: 40rem;
     @media (max-width: $md) {
-      padding-top: 40rem;
+      padding-top: 30rem;
     }
   }
   &__progress {
@@ -569,16 +693,99 @@
     position: absolute;
     top: 100%;
     left: -44rem;
+    pointer-events: none;
     white-space: nowrap;
     @media (max-width: $md) {
       left: 0;
       margin-top: -.4em;
     }
   }
+  &__btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--gap);
+  }
   &__btn-router {
     min-width: var(--btn-mw-md);
+    flex-shrink: 0;
+    @media (max-width: $md) {
+      min-width: 0;
+    }
+    .btn__icon--dir-rtl {
+      @media (max-width: $md) {
+        margin-right: 0;
+        margin-left: 8rem;
+      }
+    }
+  }
+  &__btn-router-prev {
     margin: 0 0 0 auto;
     flex-shrink: 0;
+    &.is-hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &:not(:hover) {
+      &:before {
+        transform: translate(150%, 0);
+      }
+    }
+    &:before {
+      left: 66rem;
+      right: -18rem;
+      transform: skewX(14deg);
+    }
+    .btn__icon--dir-ltr {
+      @media (max-width: $md) {
+        margin-right: 8rem;
+        margin-left: 0;
+      }
+    }
+  }
+  &__input {
+    margin: 0;
+  }
+  &__checkbox {
+    &:not(:last-child) {
+      margin-bottom: 10rem;
+    }
+    &-list {
+    }
+  }
+  &__privacy {
+    margin: 30rem 0 0;
+  }
+  &__thanks {
+    background: $accentColor;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $whiteColor;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: $transition;
+    z-index: 1;
+    > :last-child {
+      margin-bottom: 0;
+    }
+    &-text {
+      margin-top: -20rem;
+      @media (max-width: $md) {
+        margin-top: -10rem;
+      }
+    }
+  }
+  &:not(.is-send) {
+    .form-appeal__thanks {
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }
 

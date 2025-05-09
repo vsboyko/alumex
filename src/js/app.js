@@ -87,3 +87,95 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// form quiz
+document.addEventListener("DOMContentLoaded", () => {
+  const quizForm = document.querySelector(".js-quiz");
+  const quizSteps = document.querySelectorAll(".js-quiz-step");
+  const quizProgressCurrent = document.querySelector(".js-quiz-progress-current");
+  const quizProgressCount = document.querySelector(".js-quiz-progress-count");
+  const nextButton = document.querySelector(".js-quiz-btn-router");
+  const prevButton = document.querySelector(".js-quiz-btn-router-prev");
+  const totalSteps = quizSteps.length;
+  let currentStep = 0;
+
+  const updateProgress = () => {
+    quizProgressCurrent.textContent = currentStep + 1;
+    quizProgressCount.textContent = totalSteps;
+  };
+
+  const checkStepValidity = () => {
+    const currentStepEl = quizSteps[currentStep];
+    const requiredFields = currentStepEl.querySelectorAll("[required], input[type='radio'], input[type='checkbox']");
+    let allValid = true;
+
+    const checkedGroups = new Set();
+
+    requiredFields.forEach(field => {
+      const name = field.name;
+
+      if ((field.type === "radio" || field.type === "checkbox")) {
+        if (checkedGroups.has(name)) return;
+        checkedGroups.add(name);
+
+        const checked = currentStepEl.querySelectorAll(`input[name="${name}"]:checked`);
+        if (checked.length === 0) {
+          allValid = false;
+        }
+      } else {
+        if (!field.value.trim()) {
+          allValid = false;
+        }
+      }
+    });
+
+    nextButton.disabled = !allValid;
+  };
+
+  const showStep = (stepIndex) => {
+    quizSteps.forEach((step, index) => {
+      step.classList.toggle("is-show", index === stepIndex);
+    });
+    currentStep = stepIndex;
+    updateProgress();
+    checkStepValidity();
+
+    if (currentStep === 0) {
+      prevButton.classList.add("is-hide");
+    } else {
+      prevButton.classList.remove("is-hide");
+    }
+  };
+
+  nextButton.addEventListener("click", () => {
+    if (currentStep < totalSteps - 1) {
+      showStep(currentStep + 1);
+    } else {
+      quizForm.classList.add("is-send");
+      const formData = new FormData(quizForm);
+      fetch(quizForm.action, {
+        method: "POST",
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          quizForm.classList.add("is-send");
+        })
+        .catch(error => {
+          console.error("Ошибка отправки формы:", error);
+        });
+    }
+  });
+
+  prevButton.addEventListener("click", () => {
+    if (currentStep > 0) {
+      showStep(currentStep - 1);
+    }
+  });
+
+  quizForm.addEventListener("change", checkStepValidity);
+
+  quizForm.addEventListener("input", checkStepValidity);
+
+  showStep(currentStep);
+});

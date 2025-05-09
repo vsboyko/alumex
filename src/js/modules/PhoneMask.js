@@ -2,23 +2,28 @@ import IMask from 'imask';
 
 export default class PhoneMask {
   constructor(selector) {
-    const element = document.querySelector(selector);
-    if (!element) return;
-    const maskOptions = {
-      mask: '+{7} (000) 000 00 00',
-      lazy: true,
-    };
-    this.mask = IMask(element, maskOptions);
+    const elements = document.querySelectorAll(selector);
 
-    element.addEventListener('focus', () => {
-      this.mask.updateOptions({
-        lazy: false
+    if (elements.length === 0) return;
+
+    elements.forEach((element) => {
+      const maskOptions = {
+        mask: '+{7} (000) 000 00 00',
+        lazy: true,
+      };
+
+      const mask = IMask(element, maskOptions);
+
+      element.addEventListener('focus', () => {
+        mask.updateOptions({
+          lazy: false
+        });
       });
-    });
 
-    element.addEventListener('blur', () => {
-      this.mask.updateOptions({
-        lazy: true
+      element.addEventListener('blur', () => {
+        mask.updateOptions({
+          lazy: true
+        });
       });
     });
   }

@@ -31,7 +31,10 @@
     height: 100%;
     padding: 54rem 0 30rem;
     @media (max-width: $md) {
-      padding: 60rem 0 20rem;
+      height: auto;
+      margin-top: 30rem;
+      margin-bottom: 40rem;
+      padding: 30rem 0 0;
     }
   }
 }

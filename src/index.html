@@ -254,14 +254,15 @@
                     </div>
                   </div>
                   <div class="row__col--5 appeal__col appeal__col--quiz">
-                    <div class="js-quiz u-quiz appeal__quiz">
+                    <form action="quiz.php" method="POST" class="js-quiz u-quiz appeal__quiz">
+                      <input type="hidden" name="quiz_subject" value="Заявка КВИЗ">
                       <div class="u-quiz__step-list">
-                        <div class="u-quiz__step">
+                        <div class="js-quiz-step u-quiz__step is-show">
                           <div class="u-quiz__body">
                             <h3 class="color-charcoal fs-4 u-quiz__question">Куда нужны алюминиевые окна?</h3>
                             <div class="u-quiz__control-list">
                               <label class="u-radio u-quiz__control">
-                                <input type="radio" name="quiz1[]" class="u-radio__control" checked value="Для дома">
+                                <input type="radio" name="quiz_question_1" class="u-radio__control" required value="Для дома">
                                 <span class="u-radio__inner">
                                   <span class="u-radio__icon">
                                     <svg class="u-icon">
@@ -284,7 +285,7 @@
                                 </span>
                               </label>
                               <label class="u-radio u-quiz__control">
-                                <input type="radio" name="quiz1[]" class="u-radio__control" value="Для квартиры">
+                                <input type="radio" name="quiz_question_1" class="u-radio__control" required value="Для квартиры">
                                 <span class="u-radio__inner">
                                   <span class="u-radio__icon">
                                     <svg class="u-icon">
@@ -307,7 +308,7 @@
                                 </span>
                               </label>
                               <label class="u-radio u-quiz__control">
-                                <input type="radio" name="quiz1[]" class="u-radio__control" value="Для офиса">
+                                <input type="radio" name="quiz_question_1" class="u-radio__control" required value="Для офиса">
                                 <span class="u-radio__inner">
                                   <span class="u-radio__icon">
                                     <svg class="u-icon">
@@ -332,21 +333,173 @@
                             </div>
                           </div>
                         </div>
+                        <div class="js-quiz-step u-quiz__step">
+                          <div class="u-quiz__body">
+                            <h3 class="color-charcoal fs-4 u-quiz__question">Какое количество и размеры стеклопакетов Вам&nbsp;нужны?</h3>
+                            <div class="u-content u-quiz__question-description">
+                              <p>Для примера: 1 шт: 870х2071 мм, 2 шт: 870х2375 мм, ...</p>
+                            </div>
+                            <input type="text" name="quiz_question_2" class="u-input u-input--size-md u-input--theme-white-outline u-quiz__input" required placeholder="Укажите количество, ширина и высота в миллиметрах каждого стеклопакета">
+                          </div>
+                        </div>
+                        <div class="js-quiz-step u-quiz__step">
+                          <div class="u-quiz__body">
+                            <h3 class="color-charcoal fs-4 u-quiz__question">Какой тип стеклопакета?</h3>
+                            <div class="u-quiz__checkbox-list">
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="radio" name="quiz_question_3" class="u-checkbox__control" required value="Однокамерный">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Однокамерный</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="radio" name="quiz_question_3" class="u-checkbox__control" required value="Двухкамерный">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Двухкамерный</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="radio" name="quiz_question_3" class="u-checkbox__control" required value="Трехкамерный">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Трехкамерный</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="radio" name="quiz_question_3" class="u-checkbox__control" required value="Не знаю">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Не знаю</span>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="js-quiz-step u-quiz__step">
+                          <div class="u-quiz__body">
+                            <h3 class="color-charcoal fs-4 u-quiz__question">Менять будем только стеклопакеты или окна целиком?</h3>
+                            <div class="u-quiz__checkbox-list">
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="radio" name="quiz_question_4" class="u-checkbox__control" required value="Только стеклопакеты">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Только стеклопакеты</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="radio" name="quiz_question_4" class="u-checkbox__control" required value="Нужны окна в сборе">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Нужны окна в сборе</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="radio" name="quiz_question_4" class="u-checkbox__control" required value="Не знаю, нужен совет">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Не знаю, нужен совет</span>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="js-quiz-step u-quiz__step">
+                          <div class="u-quiz__body">
+                            <h3 class="color-charcoal fs-4 u-quiz__question">Нужны ли доп.опции?</h3>
+                            <div class="u-quiz__checkbox-list">
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="checkbox" name="quiz_question_5[]" class="u-checkbox__control" required value="Тонирование стекла">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Тонирование стекла</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="checkbox" name="quiz_question_5[]" class="u-checkbox__control" required value="Смарт-стекло с переменной прозрачностью">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Смарт-стекло с переменной прозрачностью</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="checkbox" name="quiz_question_5[]" class="u-checkbox__control" required value="Триплекс">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Триплекс</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="checkbox" name="quiz_question_5[]" class="u-checkbox__control" required value="Доставка">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Доставка</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="checkbox" name="quiz_question_5[]" class="u-checkbox__control" required value="Монтаж">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Монтаж</span>
+                                </span>
+                              </label>
+                              <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__checkbox">
+                                <input type="checkbox" name="quiz_question_5[]" class="u-checkbox__control" required value="Не требуются">
+                                <span class="u-checkbox__inner">
+                                  <span class="u-checkbox__icon"></span>
+                                  <span class="u-checkbox__title">Не требуются</span>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="js-quiz-step u-quiz__step">
+                          <div class="u-quiz__body">
+                            <h3 class="color-charcoal fs-4 u-quiz__question">Укажите номер телефона, мы свяжемся с Вами и сообщим информацию по расчету</h3>
+                            <input type="text" name="phone" class="js-phone-mask u-input u-input--size-md u-input--theme-white-outline u-quiz__input" required placeholder="Ваш телефон">
+                            <label class="u-checkbox u-checkbox--size-md u-checkbox--theme-grey u-quiz__privacy">
+                              <input type="checkbox" name="quiz_privacy" class="u-checkbox__control" required checked disabled value="Я согласен с политикой обработки персональных данных">
+                              <span class="u-checkbox__inner">
+                                <span class="u-checkbox__icon"></span>
+                                <span class="u-checkbox__title">Я согласен с политикой обработки персональных данных</span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
                       </div>
                       <footer class="u-quiz__footer">
-                        <p class="js-quiz-progress u-quiz__progress"><span class="js-quiz-progress-current">1</span>/<span class="js-quiz-progress-count">5</span></p>
-                        <button type="button" class="js-quiz-btn-router btn btn--theme-white-fill btn--size-md u-quiz__btn-router">
-                          <span class="btn__inner">
-                            <span class="btn__title">Далее</span>
-                            <span class="btn__icon btn__icon--dir-rtl">
-                              <svg class="u-icon">
-                                <use xlink:href="images/icons/icons.svg#arrow-type-1"></use>
-                              </svg>
+                        <p class="js-quiz-progress u-quiz__progress"><span class="js-quiz-progress-current">1</span>/<span class="js-quiz-progress-count">6</span></p>
+                        <div class="u-quiz__btn-wrapper">
+                          <button type="button" class="js-quiz-btn-router-prev btn btn--theme-white-fill btn--size-md u-quiz__btn-router-prev is-hide">
+                            <span class="btn__inner">
+                              <span class="flip-x btn__icon btn__icon--dir-ltr">
+                                <svg class="u-icon">
+                                  <use xlink:href="images/icons/icons.svg#arrow-type-1"></use>
+                                </svg>
+                              </span>
+                              <span class="btn__title">Назад</span>
                             </span>
-                          </span>
-                        </button>
+                          </button>
+                          <button type="submit" class="js-quiz-btn-router btn btn--theme-white-fill btn--size-md u-quiz__btn-router" disabled>
+                            <span class="btn__inner">
+                              <span class="btn__title">Далее</span>
+                              <span class="btn__icon btn__icon--dir-rtl">
+                                <svg class="u-icon">
+                                  <use xlink:href="images/icons/icons.svg#arrow-type-1"></use>
+                                </svg>
+                              </span>
+                            </span>
+                          </button>
+                        </div>
                       </footer>
-                    </div>
+                      <div class="form-appeal__thanks">
+                        <p class="u-title fs-4 form-appeal__title">Сообщение отправлено!</p>
+                        <div class="u-content form-appeal__thanks-text">
+                          <p>Скоро мы с Вами свяжемся!</p>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
