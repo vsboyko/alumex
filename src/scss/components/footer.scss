@@ -13,6 +13,7 @@
     bottom: 20rem;
     animation: pulse-whatsapp 2s infinite ease-in-out;
     transition: $transition;
+    z-index: 1;
     @media (max-width: $md) {
       right: 19rem;
       bottom: 51rem;
